@@ -25,11 +25,9 @@ module LicenseFinder
     end
 
     def project_sha(path)
-      Dir.chdir(path) do
-        val = capture('git rev-list --max-count 1 HEAD')
-        raise 'git rev-list failed' unless val.last
-        val.first.strip
-      end
+      # for a glide project, this should load glide.lock and return
+      # the version (git commit hash) of the named dep.
+      'fixme'
     end
 
     def current_packages
